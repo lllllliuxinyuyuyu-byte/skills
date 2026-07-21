@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use this workflow, please cite the repository and the original dataset publication."
+title: "scRNA-seq Reproducibility Skill"
+type: software
+authors:
+  - family-names: "Xiang"
+version: 0.1.0
+date-released: 2026-07-21
+license: MIT
+keywords:
+  - single-cell RNA-seq
+  - Seurat
+  - reproducibility
+  - Codex Skill
