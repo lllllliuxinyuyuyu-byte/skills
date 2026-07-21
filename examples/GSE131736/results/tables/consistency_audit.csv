@@ -1,0 +1,5 @@
+"category","label","status","detail"
+"cell_total","Paper Figure 2A core H9 trajectory","PASS","expected=21369; observed=21369; days=0,4,6,8"
+"cell_total","Additional Day 8 rep3-Day 12 cohort","PASS","expected=13657; observed=13657; days=8,12"
+"narrative","Core differentiation trajectory","PASS","stated_days=0,4,6,8; matrix_days=0,4,6,8; samples=GSM3814885,GSM3814886,GSM3814887,GSM3814888"
+"narrative","Late-stage Day 12 comparison","PASS","stated_days=8,12; matrix_days=8,12; samples=GSM3814890,GSM3814891"

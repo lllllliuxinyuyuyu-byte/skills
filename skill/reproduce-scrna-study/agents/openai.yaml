@@ -1,0 +1,4 @@
+interface:
+  display_name: "scRNA-seq Study Reproducer"
+  short_description: "Reproduce and audit scRNA-seq studies"
+  default_prompt: "Use $reproduce-scrna-study to reproduce this single-cell RNA-seq study from 10X matrices and compare the outputs with the paper."

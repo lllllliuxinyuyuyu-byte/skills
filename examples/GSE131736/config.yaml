@@ -1,0 +1,55 @@
+project:
+  name: "GSE131736 endothelial differentiation reproduction"
+  data_dir: "${SCRNA_DATA_DIR}"
+  metadata: "sample_metadata.csv"
+  output_dir: "results"
+
+qc:
+  min_features: 250
+  max_features: 100000
+  min_counts: 0
+  max_counts: 100000
+  max_mito_percent: 15
+  mitochondrial_pattern: "^MT-"
+
+analysis:
+  seed: 20260717
+  future_globals_gb: 8
+  normalization_scale_factor: 10000
+  variable_features: 2500
+  regress: ["nCount_RNA", "percent.mt"]
+  pcs: 40
+  graph_dims: 30
+  resolution: 0.5
+  reductions: ["tsne", "umap"]
+  tsne_perplexity: 30
+  module_control_genes: 50
+
+figures:
+  group_by: ["sample_group", "seurat_clusters"]
+  point_size: 0.28
+  markers: ["POU5F1", "HAND1", "KDR", "PECAM1", "CDH5", "ACTA2", "MKI67"]
+
+gene_sets:
+  endothelial_identity: ["PECAM1", "CDH5", "VWF", "EMCN", "ESAM", "ERG", "KDR", "ENG"]
+  maturity_barrier: ["CLDN5", "OCLN", "TJP1", "TEK", "THBD", "NOS3", "KLF2", "KLF4"]
+  quiescence_homeostasis: ["KLF2", "KLF4", "FOXO1", "CDKN1B", "THBD", "TEK", "NOS3"]
+  proliferation: ["MKI67", "TOP2A", "PCNA", "MCM2", "MCM3", "MCM4", "MCM5", "MCM6", "MCM7", "CCNB1"]
+  inflammation: ["ICAM1", "VCAM1", "SELE", "CCL2", "CXCL8", "NFKBIA"]
+  endmt_mesenchymal: ["ACTA2", "TAGLN", "COL1A1", "COL3A1", "SNAI1", "SNAI2", "VIM"]
+
+assertions:
+  - label: "Paper Figure 2A core H9 trajectory"
+    sample_ids: ["GSM3814885", "GSM3814886", "GSM3814887", "GSM3814888"]
+    expected_cells_before: 21369
+  - label: "Additional Day 8 rep3-Day 12 cohort"
+    sample_ids: ["GSM3814890", "GSM3814891"]
+    expected_cells_before: 13657
+
+narrative_claims:
+  - label: "Core differentiation trajectory"
+    sample_ids: ["GSM3814885", "GSM3814886", "GSM3814887", "GSM3814888"]
+    stated_days: [0, 4, 6, 8]
+  - label: "Late-stage Day 12 comparison"
+    sample_ids: ["GSM3814890", "GSM3814891"]
+    stated_days: [8, 12]
